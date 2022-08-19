@@ -1,21 +1,19 @@
 # Render-Engine
 Compute a triangulated Model (from Blender) into 3D-Projected Space on Terminal
 
-.obj objects are best exported from Blender.
-This only works if you add 'Triangulate' as a modifier.
-Then you have to remove all annotations from Blender.
-(mostly the first 3 lines, and 2 lines when changing from 'vt','vn' or 'vn','f', i.e. texture to normal, normal to face).
+Compilation:
+$ make compile
+Run Tests:
+$ make test
+Usage:
+$ ./RendererMain filename
 
-Usage: ./RendererMain filename
 The following files are available
 'cube.obj' - standard cube from Blender
 'monkey.obj' - standard monkey from Blender
 'ring.obj' - ring (in my opinion the coolest, because of the depth effect)
 'dog.obj' - dog
 'car.obj' - car
-More models you can create yourself :D ... or download them from the internet and adapt them as described above.
-The file can then also contain information about several objects, so it should also work with a scene of models.
-But then customising becomes difficult, which is why I didn't test it (so try the last suggestion at your own risk^^)!
 
 Adjustments in RasterizerManager.h:
 * adjust rotation axes
