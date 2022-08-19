@@ -1,40 +1,23 @@
-Hilfestellung/Tutorials unteranderem von:
+.obj objects are best exported from Blender.
+This only works if you add 'Triangulate' as a modifier.
+Then you have to remove all annotations from Blender.
+(mostly the first 3 lines, and 2 lines when changing from 'vt','vn' or 'vn','f', i.e. texture to normal, normal to face).
 
-http://github.com/youngbrycecode/RenderEngine/
-https://learnopengl.com/Getting-started/Coordinate-Systems
-https://en.wikipedia.org/wiki/3D_projection#:~:text=Perspective%20projection%20or%20perspective%20transformation,appear%20smaller%20than%20nearer%20objects.
-http://www.opengl.org/sdk/docs/man/xhtml/gluPerspective.xml
-https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle
-
-.obj Objekte am besten aus Render exportieren.
-Funktioniert nur wenn man dazu als Modifier 'Triangulate' hinzufügt und beide Optionen vorzugsweiße auf 'Beauty' setzt.
-Dann müssen noch alle Anmerkungen aus Blender entfernt werden
-(meistens die ersten 3 Zeilen, und 2 Zeilen beim wechsel von 'vt','vn' bzw 'vn','f', also texture auf normal, normal auf face)
-
-Das Programm nimmt den Namen der zu rendernden Datei in der Kommandozeile auf:
 Usage: ./RendererMain filename
-Zur verfügung stehen
-'cube.obj' - Standart Würfel aus Blender
-'monkey.obj' - Standart Affe aus Blender
-'ring.obj' - Ring ( meiner meinung nach am coolst, wegen dem Tiefeneffekt)
-'dog.obj' - Hund
-'car.obj' - Auto
-Weitere modelle einfach selber erstellen :D ... oder aus dem Internet downloaden und wie oben beschrieben anpassen.
-Die Datei kann dann auch informationnen zu mehreren Objekten enthalt, also sollte auch mit ner Szene an modellen funktionieren.
-Dann wird da anpassen aber lässtig, weshlab ich das nicht getest habe (also den letzten Vorschlag auf eigene Gefahr versuche^^)!
+The following files are available
+'cube.obj' - standard cube from Blender
+'monkey.obj' - standard monkey from Blender
+'ring.obj' - ring (in my opinion the coolest, because of the depth effect)
+'dog.obj' - dog
+'car.obj' - car
+More models you can create yourself :D ... or download them from the internet and adapt them as described above.
+The file can then also contain information about several objects, so it should also work with a scene of models.
+But then customising becomes difficult, which is why I didn't test it (so try the last suggestion at your own risk^^)!
 
-Anpassungen in RasterizerManager.h:
-* anpassen von rotations achsen
-* anpassen von Licht
-* anpassen von scale (um das model dog.obj genießen zu können den scale vector wie folgt setzen { 0.1, 0.1, 0.1 } :) )
-* anpassen von translates (hier sind die punkte normalisert, also nur Werte zwischen 0-1 verwendenen :) )
-* Die Farben können auch angepasst werden, die Schattierung ist dann automtisch zu den gegebenen R/G/B Werten
-  im Constructor der Datei Rasterizer.cpp anpasen :)
-  Dafür einfach in der Zeile init_color ... die letzten zwei Werte ändern und ggf. auch in der Zeile intensity ...
-  von der MAX den ersten Parameter
-
-Vielen Dank Frau Bast für diesen tollen Kurs, von so einem Projekt konnte ich immer nur träumen, jetzte kann ichs auch implementieren.
-Vielen Dank auch an meinen Tutor für die massive Unterstützung vom Anfang bis zum Ende, danke für die vielen Links zum verbessern
-meiner Programmierfähigkeiten und den tollen Rückmeldungen zu den Arbeitsblättern.
-Vielen vielen dank auch Herrn Kalmbach für die tolle unterstützung im Forum
-
+Adjustments in RasterizerManager.h:
+* adjust rotation axes
+* adjust light
+* adjust scale (to enjoy the model dog.obj set the scale vector like this { 0.1, 0.1, 0.1 } :) )
+* adjust translates (here the points are normalized, so use only values between 0-1 :) )
+* The colours can also be adjusted, the shading is then automatic to the given R/G/B values.
+  in the constructor of the file Rasterizer.cpp :)
