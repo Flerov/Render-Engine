@@ -1,12 +1,12 @@
 # Render-Engine
 Compute a triangulated Model (from Blender) into 3D-Projected Space on Terminal
 
-Compilation:
-$ make compile
-Run Tests:
-$ make test
-Usage:
-$ ./RendererMain filename
+## Compilation:
+> make compile
+## Run Tests:
+> make test
+## Usage:
+> ./RendererMain filename
 
 The following files are available
 'cube.obj' - standard cube from Blender
