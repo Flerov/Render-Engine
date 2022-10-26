@@ -5,7 +5,7 @@ Compute a triangulated Model (from Blender) into 3D-Projected Space on Terminal
 > make compile
 ## Run Tests:
 Dependency for tests: Google/GTest. Requirements: GTest (Install Guide: https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/)
-> sudo apt-get install libgtest-dev \\
+> sudo apt-get install libgtest-dev | and then to run the tests: 
 > make test
 ## Usage:
 > ./RendererMain filename
