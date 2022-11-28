@@ -11,7 +11,7 @@ LIBRARIES = -lncurses
 
 all: compile test checkstyle
 
-compile: $(MAIN_BINARIES) $(TEST_BINARIES)
+compile: $(MAIN_BINARIES)
 
 test: $(TEST_BINARIES)
 	for T in $(TEST_BINARIES); do ./$$T || exit; done
