@@ -1,6 +1,22 @@
 # Render-Engine
-Compute a triangulated Model (from Blender) into 3D-Projected Space on Terminal
+Car                        |  Car
+:-------------------------:|:-------------------------:
+<img src="https://github.com/Flerov/Render-Engine/blob/images/Car1.png" height="400" width="400" > | <img src="https://github.com/Flerov/Render-Engine/blob/images/Car2.png" height="400" width="400" >
+Car                        |  Car
+:-------------------------:|:-------------------------:
+<img src="https://github.com/Flerov/Render-Engine/blob/images/Car3.png" height="400" width="400" > | <img src="https://github.com/Flerov/Render-Engine/blob/images/Car4.png" height="400" width="400" >
+Monkey                     |  Monkey
+:-------------------------:|:-------------------------:
+<img src="https://github.com/Flerov/Render-Engine/blob/images/Ape1.png" height="400" width="400" > | <img src="https://github.com/Flerov/Render-Engine/blob/images/Ape2.png" height="400" width="400" >
+Monkey                     |  Ring
+:-------------------------:|:-------------------------:
+<img src="https://github.com/Flerov/Render-Engine/blob/images/Ape3.png" height="400" width="400" > | <img src="https://github.com/Flerov/Render-Engine/blob/images/Ring1.png" height="400" width="400" >
+Ring                       |  Ring
+:-------------------------:|:-------------------------:
+<img src="https://github.com/Flerov/Render-Engine/blob/images/Ring2.png" height="400" width="400" > | <img src="https://github.com/Flerov/Render-Engine/blob/images/Ring3.png" height="400" width="400" >
+<img src="https://github.com/Flerov/Render-Engine/blob/images/Ring4.png" height="400" width="400" >
 
+Compute a triangulated Model (from Blender) into 3D-Projected Space on Terminal
 ## Compilation:
 > make compile
 ## Run Tests:
