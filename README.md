@@ -17,6 +17,7 @@ Ring                       |  Ring
 <img src="https://github.com/Flerov/Render-Engine/blob/images/Ring4.png" height="400" width="400" >
 
 Compute a triangulated Model (from Blender) into 3D-Projected Space on Terminal
+Dependencies: ignore the test and you only need the 'ncruses' library. With the tests you'll need GTest on top. Have fun
 ## Compilation:
 > make compile
 ## Run Tests:
