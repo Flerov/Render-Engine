@@ -24,6 +24,8 @@ Dependencies: ignore the test and you only need the 'ncruses' library. With the 
 Dependency for tests: Google/GTest. Requirements: GTest (Install Guide: https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/)
 > sudo apt-get install libgtest-dev | and then to run the tests: 
 > make test
+## Add-Colors
+> export TERM="xterm-256color"
 ## Usage:
 > ./RendererMain filename
 
@@ -34,8 +36,10 @@ The following files are available
 'dog.obj' - dog
 'car.obj' - car
 
+Adjustments in TerminalManager.h:
+* adjust camera movement / rotation
+
 Adjustments in RasterizerManager.h:
-* adjust rotation axes
 * adjust light
 * adjust scale (to enjoy the model dog.obj set the scale vector like this { 0.1, 0.1, 0.1 } :) )
 * adjust translates (here the points are normalized, so use only values between 0-1 :) )
