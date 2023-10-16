@@ -4,6 +4,8 @@
 #ifndef TERMINALMANAGER_H_
 #define TERMINALMANAGER_H_
 
+#include <chrono>
+#include <thread>
 #include <ncurses.h>
 #include <utility>
 #include <vector>
@@ -30,7 +32,7 @@ void runTerminal(ObjectManager object) {
   // Initialize rasterizer
   Rasterizer raster(COLS, LINES, &object);
   // set the starting angle
-  float angle = 0;
+  float zoom = 0;
   // sets important matrixes to perform calculation based on camera
   Matrix MVPMatrix(4);
   Matrix finalMatrix(4);
@@ -46,16 +48,30 @@ void runTerminal(ObjectManager object) {
 
   // define the settings for the camera
   camera.setProjection(1.31f, LINES / (COLS * 2), .2f, 400.f);
+  //camera.setProjection(60.0f, LINES / (COLS * 2), 0.1f, 1000.0f);
   // calculate the view matrix, based on the camera settings
   camera.setViewMatrix();
-  MVPMatrix = camera.getProjectionViewMatrix();
+  MVPMatrix = camera.getViewMatrix();
 
+  // target fps: 30=33.33 | 60=16.67
+  const double targetFrameTime = 20.33; // 16.67;
+  //const double targetFrameTime = 16.67;
+  // set the desired rotation for the camera
+  // dirty temporary config reader for quick adjustments
+  std::vector<float> camRotation = { 0, 0, 0 };
+  camRotation[0] += 0.03;
+  camRotation[1] += 0.08;
+  camRotation[2] += 0.03;
+  //
   while (true) {
-    angle += 0.01;
-    m_Transform.reset();
+    auto frameStart = std::chrono::high_resolution_clock::now();
+    zoom = 0.2;
+    camera.setRotation(camRotation);
+    camera.setViewMatrix();
+    MVPMatrix = camera.getViewMatrix();
     // iterate over all transforms and apply them to the rotation matrix
     for (auto curr : transforms) {
-      m_Transform.rotate(curr, angle);
+      m_Transform.rotate(curr, zoom);
     }
     // iterate over all translates and apply them to the rotation matrix
     for (auto curr : translates) {
@@ -71,7 +87,6 @@ void runTerminal(ObjectManager object) {
     // apply calculations to the object in the last attributes field
     object.setMatrixRotation(m_Transform.getAsVector());
     object.setMatrixFinal(fmv);
-    raster.clearFrames();
     // itterate over all attributes (except the last one)
     // apply calculus to all vertexes in all three block of an attribute
     // based on the final matrix, in vector list representation
@@ -86,6 +101,14 @@ void runTerminal(ObjectManager object) {
     raster.print();
     refresh();
     erase();
+    
+    auto frameEnd = std::chrono::high_resolution_clock::now();
+    auto frameTime = std::chrono::duration_cast<std::chrono::milliseconds>(frameEnd - frameStart).count();
+    if (frameTime < targetFrameTime) {
+      std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(targetFrameTime - frameTime)));
+    }
+    m_Transform.reset();
+    raster.clearFrames();
   }
   getch();
   clear();

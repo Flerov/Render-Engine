@@ -26,12 +26,12 @@ Rasterizer::Rasterizer(
       intensity = MAX(500, intensity);
       // Hier farben anpassen. 'intensity' kann gerne a R/G/B gesetzt werden
       // Beispiele in den Kommentaren:
-      // init_color(color, intensity, intensity, 222);
-      // init_color(color, 50, 342, intensity);
-      init_color(color, 50, intensity, 222);
+      init_color(color, 0, intensity, 843);
+      // init_color(color, 50, 142, intensity);
+      //init_color(color, 80, 60, 310);
       init_pair(color, color, 0);
     }
-    init_pair(0, COLOR_GREEN, COLOR_BLUE);
+    init_pair(0, COLOR_MAGENTA, COLOR_BLUE);
 }
 
 // ____________________________________________________________________________

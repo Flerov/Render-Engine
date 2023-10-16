@@ -13,7 +13,7 @@ Camera::Camera() {
   nearPlane_ = 0;
   farPlane_ = 0;
   position_ = { 0, 0, 0 };
-  rotation_ = { 0, 0, 0 };
+  rotation_ = { 0, 1, 0 };
   viewMatrix_ = Matrix(4);
   projectionMatrix_ = Matrix(4);
   setViewMatrix();
@@ -32,7 +32,7 @@ void Camera::setRotation(std::vector<float> rotation) {
 // ____________________________________________________________________________
 void Camera::setProjection(float fov, float aspectRatio,
                  float nearPlane, float farPlane) {
-  projectionMatrix_.reset();
+  //projectionMatrix_.reset();
   float tanhfov = static_cast<float>(tanf(fov/2));
   std::vector<std::vector<float>> mv = projectionMatrix_.getAsVector();
   mv[0][0] = 1 / (aspectRatio * tanhfov);
@@ -45,8 +45,8 @@ void Camera::setProjection(float fov, float aspectRatio,
 
 // ____________________________________________________________________________
 void Camera::setViewMatrix() {
-  viewMatrix_.reset();
-  projectionMatrix_.reset();
+  //viewMatrix_.reset();
+  //projectionMatrix_.reset();
   std::vector<float> e_1 = { 1, 0, 0 };
   std::vector<float> e_2 = { 0, 1, 0 };
   std::vector<float> e_3 = { 0, 0, 1 };

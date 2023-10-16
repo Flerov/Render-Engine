@@ -26,19 +26,12 @@ ObjectManager initObject(std::string filename) {
   std::vector<float> lightpos   = { 1, 5, 5, 0 };
   // Die Achsen bitte nur einzelnt angeben
   // oder ansonsten den angle in RendererMain.cpp zu radians convertieren
-  std::vector<float> transform1 = { 1, 0, 0, 0 };
-  // std::vector<float> transform2 = { 0, 1, 0, 0 };
-  std::vector<float> transform3 = { 0, 0, 1, 0 };
-  // std::vector<float> transform4 = { 0, 0, 0, 1 };
-  std::vector<float> translate  = { 0, 1, 0 };
-  // std::vector<float> scale      = { 0.1, -0.1, 0.1 }; // für dog.obj
-  std::vector<float> scale      = { 0.5, -0.5, 0.5 };
+  std::vector<float> transform = { 0.4, 0, 0.25, 0 };
+  std::vector<float> translate  = { 0.125, 0, 0 };
+  std::vector<float> scale      = { 0.4, -0.6, 0.4 };
   object.addLight(lightpos);
-  object.addTransform(transform1);
-  // object.addTransform(transform2);
-  object.addTransform(transform3);
-  // object.addTransform(transform4);
-  // object.addTranslate(translate);
+  object.addTransform(transform);
+  object.addTranslate(translate);
   object.addScale(scale);
   return object;
 }
